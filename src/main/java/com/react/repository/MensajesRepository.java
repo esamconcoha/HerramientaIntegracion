@@ -14,7 +14,9 @@ import java.util.List;
 @Repository
 public interface MensajesRepository extends CrudRepository<Mensajes, Object> {
 
-    @Query(value="select m.descripcion_mensaje as descripcion ,m.id_usuario_mensaje as usuarioMensaje from react.mensajes m where m.id_conversacion=:idconversacion\n" +
+    @Query(value="select m.descripcion_mensaje as descripcionMensaje ,m.id_usuario_mensaje as idUsuarioMensaje,\n" +
+            "m.id_conversacion as idConversacion\n" +
+            "from react.mensajes m where m.id_conversacion=:id_conversacion\n" +
             "order by m.fecha_hora_mensaje asc",nativeQuery = true)
     public List<OrdenMensajeProjection> findOrdenMensajes(@Param("idconversacion") Integer idConversacion);
 

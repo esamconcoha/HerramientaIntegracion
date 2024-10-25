@@ -1,6 +1,8 @@
 package com.react.projections;
 
 public interface OrdenMensajeProjection {
-    String getDescripcion();
+    String getDescripcionMensaje();
     String getUsuarioMensaje();
+
+    String getIdConversacion();
 }
