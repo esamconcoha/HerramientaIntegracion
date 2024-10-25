@@ -5,6 +5,7 @@ import com.react.clients.SSAPConsumer;
 import com.react.dtos.ListUsuariosExternosDto;
 import com.react.dtos.UsuariosExternosDto;
 import com.react.models.Usuarios;
+import com.react.projections.UsuarioInternoProjection;
 import com.react.repository.UsuariosRepository;
 import com.react.service.UsuarioSvc;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +46,11 @@ public class UsuarioSvcImpl implements UsuarioSvc {
         );
 
         return response.getBody() != null ? response.getBody() : new ArrayList<>();
+    }
+
+
+    @Override
+    public List<UsuarioInternoProjection> findUsuariosInternos(String usuario){
+        return this.repositorio.findUsuariosInternos(usuario);
     }
 }

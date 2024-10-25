@@ -3,6 +3,7 @@ package com.react.controllers;
 import com.react.dtos.ListUsuariosExternosDto;
 import com.react.dtos.UsuariosExternosDto;
 import com.react.models.Usuarios;
+import com.react.projections.UsuarioInternoProjection;
 import com.react.service.UsuarioSvc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -37,5 +38,9 @@ public class UsuariosController {
         return ResponseEntity.ok(usuarioServices.findUsuariosExternos());
     }
 
+    @GetMapping("/getUsuariosInternos/{usuario}")
+    public ResponseEntity<List<UsuarioInternoProjection>> findUsuariosInternos(@PathVariable String usuario){
+        return ResponseEntity.ok(usuarioServices.findUsuariosInternos(usuario));
+    }
 
 }
