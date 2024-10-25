@@ -17,6 +17,7 @@ public class UsuarioConversacionController {
 
     @GetMapping("/obtener-usuarios-conversacion/{usuario}")
     public ResponseEntity<List<UsuarioConversacion>> obtenerUsuariosConversacion(@PathVariable String usuario){
+        System.out.println("entra al primer metodo");
         return ResponseEntity.ok(service.findConversacionesByUsuario(usuario));
     }
 

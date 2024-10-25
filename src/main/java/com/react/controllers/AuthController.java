@@ -1,10 +1,17 @@
 package com.react.controllers;
 
+import com.react.Utils.AuthorizeUtil;
+import com.react.dtos.UsuarioConversacionDto;
+import com.react.models.UsuarioConversacion;
 import com.react.models.Usuarios;
+import com.react.projections.OrdenMensajeProjection;
 import com.react.seguridad.AuthenticationRequest;
 import com.react.seguridad.AuthenticationResponse;
 import com.react.seguridad.JwtUtilService;
 import com.react.seguridad.UserDetailsServiceImpl;
+import com.react.service.ConversacionesSvc;
+import com.react.service.MensajesSvc;
+import com.react.service.UsuarioConversacionSvc;
 import com.react.service.implement.UsuarioSvcImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,12 +20,10 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.logging.Level;
@@ -37,6 +42,17 @@ public class AuthController {
 
     @Autowired
     private UsuarioSvcImpl usuarioServicio;
+    @Autowired
+    private UsuarioConversacionSvc serviceUC;
+    @Autowired
+    private ConversacionesSvc serviceC;
+
+    @Autowired
+    private MensajesSvc serviceM;
+
+    @Autowired
+    private AuthorizeUtil authorizeUtil;
+
 
     BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
     private static Logger logger
@@ -80,5 +96,26 @@ public class AuthController {
         Optional<Usuarios> usuario = usuarioServicio.findByCorreo(username);
         String contraseña = usuario.get().getPassword();
         return contraseña;
+    }
+
+
+    @GetMapping("/obtener-usuarios-conversacion/{usuario}")
+    public ResponseEntity<List<UsuarioConversacion>> obtenerUsuariosConversacion(@PathVariable String usuario){
+        System.out.println("entra al primer metodo");
+        this.authorizeUtil.validCredentials();
+        return ResponseEntity.ok(serviceUC.findConversacionesByUsuario(usuario));
+    }
+
+    @PostMapping("/crearConversacion")
+    public void crearConversacion(@RequestBody List<UsuarioConversacionDto> usuarios){
+        this.authorizeUtil.validCredentials();
+        System.out.println("objeto recibido"+ usuarios);
+        this.serviceC.crearConversacion(usuarios);
+    }
+
+    @GetMapping("/ordenMensajes/{idConversacion}")
+    public ResponseEntity<List<OrdenMensajeProjection>> findOrdenMensajes(@PathVariable Integer idConversacion){
+        this.authorizeUtil.validCredentials();
+        return ResponseEntity.ok(serviceM.findOrdenMensajes(idConversacion));
     }
 }
