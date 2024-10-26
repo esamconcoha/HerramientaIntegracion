@@ -1,0 +1,40 @@
+<app-sidebar (onToggleSideNav)="onToggleSideNav($event)"></app-sidebar>
+<div class="body" [ngClass]="getBodyClass()"> 
+  <div class="main-container">
+    <mat-card class="custom-card">
+      <mat-card-title class="custom-card-title">
+        <i class="fas fa-comments"></i> Conversaciones
+      </mat-card-title>
+    </mat-card>
+    <br><br>
+  
+    <mat-card-content class="card-content">
+      <button mat-raised-button (click)="consumirUsuarios()">
+        <i class="fas fa-comment-dots"></i> Crear nueva conversación
+      </button>
+    </mat-card-content>
+  
+    <div class="conversation-list">
+      <mat-card 
+        *ngFor="let conversacion of listaConversaciones" 
+        class="conversacion-card"
+        (click)="abrirConversacion(conversacion.idConversacion)"
+      >
+        <mat-card-header>
+          <div class="avatar-container">
+            <img src="../../../assets/avatar.png" width="40px" height="40px" alt="Chat Icon">
+          </div>
+          <mat-card-title>{{ conversacion.correoUsuario }}</mat-card-title>
+          <mat-card-subtitle>{{ conversacion.usuario }}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+  
+      <ng-template #noData>
+        <p class="no-data">No hay conversaciones disponibles.</p>
+      </ng-template>
+    </div>
+  </div>
+
+</div>
+
+

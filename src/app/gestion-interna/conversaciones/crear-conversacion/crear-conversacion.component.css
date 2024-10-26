@@ -1,0 +1,39 @@
+.form-container {
+    padding: 20px;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  button[mat-raised-button] {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  
+  .mat-form-field {
+    margin-bottom: 20px;
+  }
+
+  .option-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .usuario-nombre {
+    font-size: 16px; /* Tamaño de letra normal para el nombre */
+    font-weight: 400;
+  }
+  
+  .usuario-correo {
+    font-size: 12px; /* Tamaño de letra más pequeño para el correo */
+    color: gray;
+  }
+  
+  

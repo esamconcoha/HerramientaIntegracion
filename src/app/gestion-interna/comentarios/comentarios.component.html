@@ -1,0 +1,40 @@
+<app-sidebar (onToggleSideNav)="onToggleSideNav($event)"></app-sidebar>
+<div class="body" [ngClass]="getBodyClass()">
+    
+<br><br><br><br>
+    <div class="project-section">
+        <div class="project-card">
+          <h2 class="project-title">Proyecto</h2>
+      
+          <div class="project-info">
+            <p><span class="icon">👤</span> Asignado A   <button class="info-btn">MI</button></p>
+            <p><span class="icon">📅</span> Fecha Limite <button class="info-btn">Hoy</button></p>
+            <p><span class="icon">⚖️</span> Importancia <button class="info-btn">Media</button></p>
+          </div>
+      
+          <hr class="divider">
+      
+          <div class="project-upload">
+            <h3>Agregar Documentos</h3>
+            <p>No Hay documentos</p>
+            <button class="upload-btn">Upload</button>
+          </div>
+      
+          <hr class="divider">
+      
+          <div class="project-comments">
+            <h3>Agregar Comentarios</h3>
+            <textarea placeholder="Ingresa el comentario..." class="comments-textarea"></textarea>
+            <button class="upload-btn">Upload</button>
+          </div>
+      
+          <hr class="divider">
+      
+          <div class="project-actions">
+            <button class="delete-btn">Eliminar</button>
+            <button class="accept-btn">Aceptar</button>
+          </div>
+        </div>
+      </div>
+      
+    </div>

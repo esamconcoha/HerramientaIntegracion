@@ -1,0 +1,19 @@
+<form [formGroup]="receptorConversacion" class="form-container">
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Selecciona un usuario</mat-label>
+    <mat-select name="Usuario" formControlName="dpi">
+      <mat-option *ngFor="let usuario of ListaUsuarios" [value]="usuario.dpi">
+        <div class="option-content">
+          <span class="usuario-nombre">{{ usuario.nombre }}</span>
+          <span class="usuario-correo">{{ usuario.correo }}</span>
+        </div>
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
+
+<div mat-dialog-actions class="action-buttons">
+  <button mat-raised-button color="warn" mat-dialog-close>Cancelar</button>
+  <button mat-raised-button color="primary" mat-dialog-close (click)="crearConversacion()">Guardar</button>
+</div>
+

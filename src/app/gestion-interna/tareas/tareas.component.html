@@ -1,0 +1,57 @@
+<app-sidebar (onToggleSideNav)="onToggleSideNav($event)"></app-sidebar>
+<div class="body" [ngClass]="getBodyClass()"> 
+
+<br><br><br><br>
+<div class="container">
+    <header>
+      <input type="text" placeholder="Busca tareas" class="search-bar">
+      <div class="header-buttons">
+        <button mat-raised-button color="primary" class="create-btn">Crear</button>
+        <button mat-icon-button class="notifications-btn">📧</button>
+      </div>
+    </header>
+  
+    <main>
+      <section class="tasks-section">
+        <mat-card class="tasks-card">
+          <mat-card-title>Tareas</mat-card-title>
+  
+          <mat-card-content class="task">
+            <mat-checkbox></mat-checkbox>
+            <div class="task-info">
+              <strong>Pruebas de calidad</strong>
+              <p>Hacer pruebas de calidad de nuevo componente desarrollado</p>
+            </div>
+          </mat-card-content>
+  
+          <mat-card-content class="task">
+            <mat-checkbox></mat-checkbox>
+            <div class="task-info">
+              <strong>Desarrollos pendientes</strong>
+              <p>Desarrollar Casos de uso pendientes</p>
+            </div>
+          </mat-card-content>
+  
+          <mat-card-content class="task">
+            <mat-checkbox></mat-checkbox>
+            <div class="task-info">
+              <strong>Documentacion pendiente</strong>
+              <p>Documentar los desarrollos realizados</p>
+            </div>
+          </mat-card-content>
+  
+          <mat-card-content class="task">
+            <mat-checkbox></mat-checkbox>
+            <div class="task-info">
+              <strong>Atender tickets de mantenimiento</strong>
+              <p>Dar atencion a mantenimientos solicitados por el cliente</p>
+            </div>
+          </mat-card-content>
+  
+        </mat-card>
+      </section>
+  
+     
+    </main>
+  </div>
+</div>

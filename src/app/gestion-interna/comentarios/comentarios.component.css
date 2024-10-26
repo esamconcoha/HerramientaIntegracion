@@ -1,0 +1,145 @@
+/* Reset de márgenes y padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.project-section {
+    width: 100%;
+    max-width: 600px;
+    margin: auto; /* Centra el contenedor */
+}
+
+.project-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+}
+
+.project-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.project-info {
+    margin-bottom: 20px;
+}
+
+.project-info p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1rem;
+    margin: 10px 0;
+    color: #555;
+}
+
+.icon {
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
+.info-btn {
+    background-color: #d3d3d3;
+    color: #333;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.confidential-btn {
+    background-color: #ff6f61;
+    color: #fff;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 20px 0;
+}
+
+.project-upload, .project-comments {
+    text-align: left;
+}
+
+.project-upload h3, .project-comments h3 {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.upload-btn {
+    background-color: #a29bfe;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 0.9em;
+}
+
+.upload-btn:hover {
+    background-color: #6c5ce7;
+}
+
+.comments-textarea {
+    width: 100%;
+    height: 60px;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    resize: none;
+    font-size: 0.9em;
+}
+
+.project-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.delete-btn, .accept-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.delete-btn {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+.accept-btn {
+    background-color: #6bcf6e;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #ff5252;
+}
+
+.accept-btn:hover {
+    background-color: #58c858;
+}
