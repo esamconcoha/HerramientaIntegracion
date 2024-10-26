@@ -1,0 +1,47 @@
+<div class="chat-container">
+  <div class="chat-header">
+    <div class="chat-title">
+      <img src="../../../assets/chat-icon.png" width="40px" height="40px" alt="Chat Icon" />
+      <span>Chat</span>
+    </div>
+    <div class="user-info">
+      <img src="../../../assets/avatar.png" class="user-avatar" alt="User Avatar" />
+      <span>John Doe</span>
+    </div>
+  </div>
+
+  <div class="messages-container" *ngIf="yaMensajes">
+    <ul class="messages">
+      <li
+        class="message"
+        *ngFor="let item of messageList"
+        [ngClass]="{'left': item.message_side === 'receiver', 'right': item.message_side === 'sender'}"
+      >
+        <div class="message-content">
+          <div class="avatar">
+            <img src="../../../assets/avatar.png" alt="Avatar" />
+          </div>
+          <div class="text-wrapper">
+            <p class="message-text">{{ item.descripcionMensaje }}</p>
+           
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="chat-footer">
+    <input
+      class="message-input"
+      placeholder="Escribe un mensaje..."
+      [(ngModel)]="messageInput"
+    />
+    <button class="send-button" (click)="sendMessage()">
+      <i class="fas fa-paper-plane"></i> Enviar
+    </button>
+
+    <button class="back-button" (click)="regresar()">
+      <i class="fas fa-angle-double-left"></i> regresar
+    </button>
+  </div>
+</div>
